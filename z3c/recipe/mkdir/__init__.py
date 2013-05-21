@@ -13,13 +13,9 @@ class Recipe:
         self.create_intermediate = string_to_bool(
             options.get('create-intermediate', 'yes'))
 
-        if 'path' in options.keys():
-            self.logger.warn(
-                "Use of 'path' option is deprectated. Use 'paths' instead.")
-
-        paths = options.get(
-            'paths', options.get('path', os.path.join(
-                buildout['buildout']['parts-directory'], name)))
+        paths = options.get('paths',
+                            os.path.join(
+                                buildout['buildout']['parts-directory'], name))
         self.paths = []
         for path in paths.split('\n'):
             path = path.strip()
@@ -60,7 +56,7 @@ class Recipe:
                     "System does not support `grp`. Using default group")
 
         # Update options to be referencable...
-        options['path'] = options['paths'] = '\n'.join(self.paths)
+        options['paths'] = '\n'.join(self.paths)
         options['create-intermediate'] = '%s' % self.create_intermediate
         options['remove-on-update'] = '%s' % self.remove_on_update
         if self.mode:

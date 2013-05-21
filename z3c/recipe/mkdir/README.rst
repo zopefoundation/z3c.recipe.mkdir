@@ -674,34 +674,6 @@ And make the second part of the path a file:
   Error: Cannot create directory: /.../rootdir2/somefile. It's a file.
 
 
-Don't use ``path`` option
-#########################
-
-.. note:: ``path`` is deprectated!
-
-Starting with version 0.3 the ``path`` option is deprecated. Use
-``paths`` instead:
-
-  >>> write('buildout.cfg',
-  ... '''
-  ... [buildout]
-  ... parts = mydir
-  ... offline = true
-  ...
-  ... [mydir]
-  ... recipe = z3c.recipe.mkdir
-  ... path = myrootdir
-  ... remove-on-update = yes
-  ... ''')
-
-  >>> printx(system(join('bin', 'buildout')))
-  mydir: Use of 'path' option is deprectated. Use 'paths' instead.
-  Installing mydir.
-  mydir: set permissions for /sample-buildout/myrootdir
-
-The ``path`` option will be supported only for a limited time!
-
-
 Referencing options
 -------------------
 
