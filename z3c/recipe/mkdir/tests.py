@@ -80,7 +80,3 @@ def test_suite():
             setUp=setUp, tearDown=zc.buildout.testing.buildoutTearDown,
             optionflags=doctest.ELLIPSIS, checker=checker),
         )
-
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')
