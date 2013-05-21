@@ -90,14 +90,13 @@ Lets create a minimal `buildout.cfg` file:
 
 Now we can run buildout:
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Installing mydir.
   mydir: created path: /sample-buildout/parts/mydir
 
 The directory was indeed created in the ``parts`` directory:
 
-  >>> ls('parts')
-  d  buildout
+  >>> ls_parts()
   d  mydir
 
 
@@ -126,15 +125,14 @@ that we want it to be created in the ``parts/`` directory. We set the
 
 Now we can run buildout:
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/parts/myotherdir
 
 The directory was indeed created:
 
-  >>> ls('parts')
-  d  buildout
+  >>> ls_parts()
   d  mydir
   d  myotherdir
 
@@ -157,7 +155,7 @@ the ``remove-on-update`` option:
   ... paths = newdir
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/newdir
@@ -187,7 +185,7 @@ We rewrite `buildout.cfg` and set a different path:
   ... paths = newdir2
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/newdir2
@@ -235,7 +233,7 @@ so.
   ... group = %s
   ... ''' % (user, group))
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/my
@@ -281,7 +279,7 @@ from ``0700`` to ``0750``:
   ... group = %s
   ... ''' % (user, group))
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: set permissions for /sample-buildout/my/new/dir
@@ -320,7 +318,7 @@ buildout directory:
   ... paths = myrootdir
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/myrootdir
@@ -337,8 +335,7 @@ buildout directory:
 
   The old directories will **not** vanish:
 
-  >>> ls('parts')
-  d  buildout
+  >>> ls_parts()
   d  mydir
   d  myotherdir
 
@@ -360,7 +357,7 @@ will be created for us as well by default:
   ... paths = myrootdir/other/dir/finaldir
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/myrootdir/other
@@ -386,7 +383,7 @@ directory exists already:
   ... create-intermediate = no
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   While:
@@ -416,7 +413,7 @@ paths:
   ... mode = 750
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Installing mydir.
   mydir: created path: /sample-buildout/mydir
   mydir:   mode 0750
@@ -451,7 +448,7 @@ would do the trick:
 
 If the local `etc/` dir does not exist, we fail:
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   While:
@@ -462,7 +459,7 @@ If the local `etc/` dir does not exist, we fail:
 But if this dir exists:
 
   >>> mkdir('etc')
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Installing mydir.
   mydir: created path: /sample-buildout/etc/myapp
   mydir:   mode 0750
@@ -496,7 +493,7 @@ creating it:
   ... paths = myroot/foo/../dir1/../bar/.
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/myroot
@@ -525,7 +522,7 @@ We can create multiple paths in one buildout section:
   ...         myroot/dir2
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/myroot/dir1
@@ -572,7 +569,7 @@ or without:
   ...         myroot/dir4
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/myroot/dir3
@@ -603,7 +600,7 @@ recipe):
   ... paths = path1
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/path1
@@ -625,7 +622,7 @@ Now we switch the setting of mydir to ``path2``:
   ... paths = path2
   ... ''')
 
-  >>> print system(join('bin', 'buildout'))
+  >>> printy(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/path2
@@ -669,7 +666,7 @@ And make the second part of the path a file:
   ... blah
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   While:
@@ -697,7 +694,7 @@ Starting with version 0.3 the ``path`` option is deprecated. Use
   ... remove-on-update = yes
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   mydir: Use of 'path' option is deprectated. Use 'paths' instead.
   Installing mydir.
   mydir: set permissions for /sample-buildout/myrootdir
@@ -737,7 +734,7 @@ You can reference also, if no path was given explicitly in
   >>> recipe = z3c.recipe.mkdir.Recipe(
   ...   buildout, 'somedir', buildout['somedir'])
 
-  >>> print buildout['somedir']['paths']
+  >>> printy(buildout['somedir']['paths'])
   /buildout/parts/somedir
 
 This means that if you have a `buildout.cfg` like this::
@@ -777,7 +774,7 @@ If you reference a single path, you will get this back in references:
   >>> recipe = z3c.recipe.mkdir.Recipe(
   ...   buildout, 'somedir', buildout['somedir'])
 
-  >>> print buildout['somedir']['paths']
+  >>> printy(buildout['somedir']['paths'])
   /sample-buildout/otherdir
 
 Referencing with multiple paths set
@@ -799,6 +796,6 @@ of output when referencing:
   >>> recipe = z3c.recipe.mkdir.Recipe(
   ...   buildout, 'somedir', buildout['somedir'])
 
-  >>> print buildout['somedir']['paths']
+  >>> printy(buildout['somedir']['paths'])
   /sample-buildout/dir1
   /sample-buildout/dir2

@@ -20,7 +20,7 @@ the given path and not the default (parts/mydir) (bug up to 0.3.1):
 
 Now we can run buildout:
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   mydir: Use of 'path' option is deprectated. Use 'paths' instead.
   Installing mydir.
   mydir: created path: /sample-buildout/my
@@ -58,7 +58,7 @@ We create a `paths` definition with empty entries (first and middle):
   ... mode = 0750
   ... ''')
 
-  >>> print system(join('bin', 'buildout')),
+  >>> printx(system(join('bin', 'buildout')))
   Uninstalling mydir.
   Installing mydir.
   mydir: created path: /sample-buildout/mypath1
