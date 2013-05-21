@@ -1,8 +1,8 @@
 Changes
 *******
 
-(unreleased)
-============
+0.6 (2013-05-21)
+================
 
 - Dropped support for deprecated ``path`` option (use ``paths`` instead).
 
