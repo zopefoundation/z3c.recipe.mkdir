@@ -3,13 +3,19 @@ import os
 
 version = '0.5.1dev'
 
+with open("README.rst") as f:
+    README = f.read()
+
+with open(os.path.join("z3c", "recipe", "mkdir", "README.rst")) as f:
+    DETAILED = f.read()
+
+with open("CHANGES.rst") as f:
+    CHANGES = f.read()
+
 setup(name='z3c.recipe.mkdir',
       version=version,
       description="Buildout recipe to create directories.",
-      long_description=open("README.txt").read() + "\n\n" +
-                       open(os.path.join("z3c", "recipe", "mkdir",
-                                         "README.txt")).read() + "\n\n" +
-                       open("CHANGES.txt").read(),
+      long_description=README + "\n\n" + DETAILED + "\n\n" + CHANGES,
       classifiers=[
         "Development Status :: 3 - Alpha",
         "Framework :: Buildout",
