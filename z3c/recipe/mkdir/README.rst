@@ -1,11 +1,9 @@
-Detailed Description
-********************
-
-.. contents::
+:mod:`z3c.recipe.mkdir` Usage
+=============================
 
 
 Recipe Options
-==============
+--------------
 
 ``z3c.recipe.mkdir`` provides the following options:
 
@@ -76,7 +74,7 @@ Recipe Options
 
 
 Simple creation of directories via buildout
-===========================================
+-------------------------------------------
 
 Lets create a minimal `buildout.cfg` file:
 
@@ -108,7 +106,7 @@ directory is like the section name ``mydir``.
 
 
 Creating a directory in a given path
-====================================
+------------------------------------
 
 Lets create a minimal `buildout.cfg` file. This time the directory
 has a name different from section name and we have to tell explicitly,
@@ -142,7 +140,7 @@ The directory was indeed created:
 
 
 Creating directories that are removed on updates
-================================================
+------------------------------------------------
 
 We can tell the recipe that a directory should be removed on updates by using
 the ``remove-on-update`` option:
@@ -209,7 +207,7 @@ Note, that the created directory will be removed on next modification
 of `buildout.cfg`.
 
 Setting User, Group, and Permissions
-====================================
+------------------------------------
 
 You can optionally set ``user``, ``group``, or ``mode`` option for the
 dirs to be created.
@@ -306,7 +304,7 @@ Clean up:
   >>> shutil.rmtree('my')
 
 Creating relative paths
-=======================
+-----------------------
 
 If we specify a relative path, this path will be created relative to the
 buildout directory:
@@ -346,7 +344,7 @@ buildout directory:
 
 
 Creating intermediate paths
-===========================
+---------------------------
 
 If we specify several levels of directories, the intermediate parts
 will be created for us as well by default:
@@ -481,7 +479,7 @@ configuration file.
 
 
 Paths are normalized
-====================
+--------------------
 
 If we specify a non-normalized path (i.e. one that contains references
 to parent directories or similar), the path will be normalized before
@@ -511,7 +509,7 @@ Only ``bar/`` will be created:
 
 
 Creating multiple paths in a row
-================================
+--------------------------------
 
 We can create multiple paths in one buildout section:
 
@@ -557,7 +555,7 @@ different created paths from templates or similar.
 
 
 Trailing slashes do not matter
-==============================
+------------------------------
 
 It doesn't matter, whether you specify the paths with trailing slash
 or without:
@@ -588,7 +586,7 @@ or without:
   d  dir4
 
 Things to be aware of
-=====================
+---------------------
 
 If you change the setting of some path, the old directory and all its
 contents will **not** be deleted (as you might expect from a buildout
@@ -639,11 +637,11 @@ The file we created above is still alive:
   -  myfile
 
 
-Things, one should not do
-=========================
+Things one should not do
+------------------------
 
 Trying to create directories that exist and are files
------------------------------------------------------
+#####################################################
 
 If a part of a given path already exists and is a file, an error is
 raised:
@@ -680,7 +678,7 @@ And make the second part of the path a file:
 
 
 Don't use ``path`` option
--------------------------
+#########################
 
 .. note:: ``path`` is deprectated!
 
@@ -708,7 +706,7 @@ The ``path`` option will be supported only for a limited time!
 
 
 Referencing options
-===================
+-------------------
 
 From other buildout recipe components you can reference the options of
 `z3c.recipe.mkdir` like this::
@@ -722,7 +720,7 @@ Options `mode`, `user`, and `group` are only referencable if they are
 explicitly set.
 
 Referencing without giving a path
----------------------------------
+#################################
 
 You can reference also, if no path was given explicitly in
 `buildout.cfg`:
@@ -762,7 +760,7 @@ which will turn into::
 
 
 Referencing with single path set
---------------------------------
+################################
 
 If you reference a single path, you will get this back in references:
 
@@ -783,7 +781,7 @@ If you reference a single path, you will get this back in references:
   /sample-buildout/otherdir
 
 Referencing with multiple paths set
------------------------------------
+###################################
 
 If you set several paths in `buildout.cfg`, you will get several lines
 of output when referencing:
