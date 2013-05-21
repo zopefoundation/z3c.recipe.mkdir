@@ -4,6 +4,8 @@ Changes
 (unreleased)
 ============
 
+- Added support for Python 3.2 / 3.3.
+
 - Added ``setup.py docs`` alias:  runs ``setup.py develop`` and then installs
   documentation dependencies.
 
