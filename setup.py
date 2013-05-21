@@ -12,6 +12,9 @@ with open(os.path.join("z3c", "recipe", "mkdir", "README.rst")) as f:
 with open("CHANGES.rst") as f:
     CHANGES = f.read()
 
+TESTS_REQUIRE = ['zope.testing']
+DOCS_REQUIRE = ['Sphinx']
+
 setup(name='z3c.recipe.mkdir',
       version=version,
       description="Buildout recipe to create directories.",
@@ -39,11 +42,13 @@ setup(name='z3c.recipe.mkdir',
           'setuptools',
           'zc.buildout >= 1.5',
       ],
-      extras_require=dict(
-        test = [
-            'zope.testing',
-            ]
-        ),
+      test_suite='z3c.recipe.mkdir.tests.test_suite',
+      tests_require='zope.testing',
+      extras_require={
+        'test': TESTS_REQUIRE,
+        'testing': TESTS_REQUIRE,
+        'docs': DOCS_REQUIRE,
+      },
       entry_points="""
       [zc.buildout]
       default = z3c.recipe.mkdir:Recipe

@@ -1,71 +1,77 @@
 Changes
 *******
 
-0.5.1 (unreleased)
-==================
+(unreleased)
+============
 
-* Updated docs and tests.
+- Added ``setup.py docs`` alias:  runs ``setup.py develop`` and then installs
+  documentation dependencies.
+
+- Added ``setup.py dev`` alias:  runs ``setup.py develop`` and then installs
+  testing dependencies.
+
+- Updated docs and tests.
 
 0.5 (2012-06-26)
 ==================
 
-* Added support for ``create-intermediate`` option (``yes`` by default).
+- Added support for ``create-intermediate`` option (``yes`` by default).
 
-* Fixed bug: empty directory names were not excluded from ``paths``.
+- Fixed bug: empty directory names were not excluded from ``paths``.
 
 0.4 (2012-06-24)
 ================
 
-* Added support for ``mode``, ``user``, and ``group`` options.
+- Added support for ``mode``, ``user``, and ``group`` options.
 
-* Fixed (unnoticed?) bug when using the deprecated ``path`` option. In
+- Fixed (unnoticed?) bug when using the deprecated ``path`` option. In
   that case the default path (``parts/<sectionname>``) was created
   instead of the given one.
 
-* Shortened main code.
+- Shortened main code.
 
-* Updated tests to run with `zc.buildout` 1.5, thus requiring at least this
+- Updated tests to run with ``zc.buildout`` 1.5, thus requiring at least this
   version.
 
-* Using python's ``doctest`` module instead of depreacted
+- Using python's ``doctest`` module instead of depreacted
   ``zope.testing.doctest``.
 
 
 0.3.1 (2009-08-21)
 ==================
 
-* Update options ``path`` and ``paths`` to be referencable.
+- Update options ``path`` and ``paths`` to be referencable.
 
-* Output ``created`` message only if a directory was really created
+- Output ``created`` message only if a directory was really created
   but display this message also for intermediate directories.
 
 0.3 (2009-08-20)
 ================
 
-* Renamed ``path`` option to ``paths`` (plural). Please do not use
+- Renamed ``path`` option to ``paths`` (plural). Please do not use
   ``path`` anymore!
 
-* Created directories are now displayed during buildout runs.
+- Created directories are now displayed during buildout runs.
 
-* Changed default behaviour: directories created once will not be
+- Changed default behaviour: directories created once will not be
   removed on updates, except you require that explicitly.
 
-* Added new option ``remove-on-update``: if set to ``yes``, ``true``
+- Added new option ``remove-on-update``: if set to ``yes``, ``true``
   or ``on`` the set directories will be removed on updates of
-  `buildout` configuration.
+  ``buildout`` configuration.
 
 
 0.2 (2009-08-19)
 ================
 
-* Make paths absolute and normalize them before creation.
+- Make paths absolute and normalize them before creation.
 
-* Support creation of several paths in a row.
+- Support creation of several paths in a row.
 
-* Added check whether a file exists as part of path and emit error.
+- Added check whether a file exists as part of path and emit error.
 
 
 0.1 (2009-08-17)
 ================
 
-* Initial release.
+- Initial release.
