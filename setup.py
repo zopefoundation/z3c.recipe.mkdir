@@ -18,7 +18,7 @@ DOCS_REQUIRE = ['Sphinx']
 setup(name='z3c.recipe.mkdir',
       version=version,
       description="Buildout recipe to create directories.",
-      long_description=README + "\n\n" + DETAILED + "\n\n" + CHANGES,
+      long_description=README + "\n\n" + CHANGES,
       classifiers=[
         "Development Status :: 3 - Alpha",
         "Framework :: Buildout",
