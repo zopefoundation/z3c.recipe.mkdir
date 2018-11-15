@@ -1,0 +1,15 @@
+[run]
+branch = True
+source = z3c.recipe.mkdir
+
+[report]
+precision = 2
+
+[html]
+directory = htmlcov
+
+[paths]
+source =
+   z3c/recipe/mkdir
+   .tox/*/lib/python*/site-packages/z3c/recipe/mkdir
+   .tox/pypy*/site-packages/z3c/recipe/mkdir

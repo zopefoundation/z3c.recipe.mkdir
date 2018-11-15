@@ -12,7 +12,10 @@ with open(os.path.join("z3c", "recipe", "mkdir", "README.rst")) as f:
 with open("CHANGES.rst") as f:
     CHANGES = f.read()
 
-TESTS_REQUIRE = ['zope.testing']
+TESTS_REQUIRE = [
+    'zope.testing',
+    'zope.testrunner',
+]
 DOCS_REQUIRE = ['Sphinx']
 
 setup(name='z3c.recipe.mkdir',
@@ -24,11 +27,14 @@ setup(name='z3c.recipe.mkdir',
           "Framework :: Buildout",
           "Programming Language :: Python",
           "Programming Language :: Python :: 2",
-          "Programming Language :: Python :: 2.6",
           "Programming Language :: Python :: 2.7",
           "Programming Language :: Python :: 3",
-          "Programming Language :: Python :: 3.2",
-          "Programming Language :: Python :: 3.3",
+          "Programming Language :: Python :: 3.4",
+          "Programming Language :: Python :: 3.5",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "License :: OSI Approved :: Zope Public License",
       ],

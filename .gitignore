@@ -1,8 +1,10 @@
 *.egg-info
 *.pyc
+.coverage
+.installed.cfg
+.tox
 bin
 develop-eggs
+docs/_build
 eggs
 parts
-.installed.cfg
-docs/_build
