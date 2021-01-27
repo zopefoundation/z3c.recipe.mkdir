@@ -2,12 +2,13 @@ import logging
 import os
 import zc.buildout
 
+
 class Recipe:
     def __init__(self, buildout, name, options):
-        self.buildout=buildout
-        self.name=name
-        self.options=options
-        self.logger=logging.getLogger(self.name)
+        self.buildout = buildout
+        self.name = name
+        self.options = options
+        self.logger = logging.getLogger(self.name)
         self.remove_on_update = string_to_bool(
             options.get('remove-on-update', 'no'))
         self.create_intermediate = string_to_bool(
