@@ -4,7 +4,9 @@ Changes
 0.8 (unreleased)
 ================
 
-- Nothing changed yet.
+- Add support for Python 3.8 and 3.9.
+
+- Drop support for Python 3.4.
 
 
 0.7 (2018-11-16)

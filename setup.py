@@ -6,7 +6,7 @@ version = '0.8.dev0'
 with open("README.rst") as f:
     README = f.read()
 
-with open(os.path.join("z3c", "recipe", "mkdir", "README.rst")) as f:
+with open(os.path.join("src", "z3c", "recipe", "mkdir", "README.rst")) as f:
     DETAILED = f.read()
 
 with open("CHANGES.rst") as f:
@@ -29,10 +29,11 @@ setup(name='z3c.recipe.mkdir',
           "Programming Language :: Python :: 2",
           "Programming Language :: Python :: 2.7",
           "Programming Language :: Python :: 3",
-          "Programming Language :: Python :: 3.4",
           "Programming Language :: Python :: 3.5",
           "Programming Language :: Python :: 3.6",
           "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
           "Programming Language :: Python :: Implementation :: CPython",
           "Programming Language :: Python :: Implementation :: PyPy",
           "Topic :: Software Development :: Libraries :: Python Modules",
@@ -41,9 +42,10 @@ setup(name='z3c.recipe.mkdir',
       keywords='buildout directory folder mkdir',
       author='Uli Fouquet',
       author_email='grok-dev@zope.org',
-      url='http://pypi.python.org/pypi/z3c.recipe.mkdir',
+      url='https://github.com/zopefoundation/z3c.recipe.mkdir',
       license='ZPL 2.1',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
       namespace_packages=['z3c', 'z3c.recipe'],
       include_package_data=True,
       zip_safe=False,

@@ -26,13 +26,14 @@ from zope.testing import renormalizing
 user = pwd.getpwuid(os.geteuid()).pw_name
 group = grp.getgrgid(os.getegid()).gr_name
 
+
 def dir_entry(path):
     # create a dir entry for file/dir in path.
     def perm(mode):
         # turn file stat mode into rwx...-string
         result = ''
-        for grp in oct(mode)[-3:]:
-            perms = int(grp)
+        for group in oct(mode)[-3:]:
+            perms = int(group)
             for num, sign in ((0o4, 'r'), (0o2, 'w'), (0o1, 'x')):
                 result += perms & num and sign or '-'
         return result
@@ -41,13 +42,13 @@ def dir_entry(path):
     permissions = type_flag + perm(st.st_mode)
     return '%s %s %s %s' % (permissions, user, group, path)
 
+
 def ls_parts(dir='parts', *subs):
     # list files and directories in `path` with permissions and type.
     # *don't* print 'buildout' as a part
     if subs:
         dir = os.path.join(dir, *subs)
-    names = os.listdir(dir)
-    names.sort()
+    names = sorted(os.listdir(dir))
     for name in names:
         if name == 'buildout':
             continue
@@ -59,6 +60,7 @@ def ls_parts(dir='parts', *subs):
             printx('-  ')
         print(name)
 
+
 def lls(path):
     # list files and directories in `path` with permissions and type.
     for name in sorted(os.listdir(path)):
@@ -68,6 +70,7 @@ def lls(path):
 def printx(*args, **kw):
     import sys
     sys.stdout.write(' '.join(args))
+
 
 def setUp(test):
     zc.buildout.testing.buildoutSetUp(test)
@@ -84,25 +87,26 @@ checker = renormalizing.RENormalizing([
     zc.buildout.testing.normalize_path,
     (re.compile(
         "Couldn't find index page for '[a-zA-Z0-9.]+' "
-        "\(maybe misspelled\?\)"
+        r"\(maybe misspelled\?\)"
         "\n"),
      ''),
     (re.compile("""['"][^\n"']+z3c.recipe.i18n[^\n"']*['"],"""),
      "'/z3c.recipe.i18n',"),
     (re.compile('#![^\n]+\n'), ''),
-    (re.compile('-\S+-py\d[.]\d(-\S+)?.egg'),
+    (re.compile(r'-\S+-py\d[.]\d(-\S+)?.egg'),
      '-pyN.N.egg',
-    ),
+     ),
     (re.compile("user '%s'" % user), "user 'USER'"),
     (re.compile("group '%s'" % group), "group 'GROUP'"),
     (re.compile("%s %s" % (user, group)), "USER GROUP"),
     (re.compile(user), "USER"),
-    ])
+])
 
 
 def test_suite():
     return unittest.TestSuite(
-        doctest.DocFileSuite('README.rst', 'regression.txt',
+        doctest.DocFileSuite(
+            'README.rst', 'regression.txt',
             setUp=setUp, tearDown=zc.buildout.testing.buildoutTearDown,
             optionflags=doctest.ELLIPSIS, checker=checker),
-        )
+    )
