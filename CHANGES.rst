@@ -4,13 +4,9 @@ Changes
 1.0 (unreleased)
 ================
 
-- Add support for Python 3.11.
+- Drop support for Python 2.7, 3.4. 3.5, 3.6.
 
-- Drop support for Python 2.7, 3.5, 3.6.
-
-- Add support for Python 3.8, 3.9, 3.10.
-
-- Drop support for Python 3.4.
+- Add support for Python 3.8, 3.9, 3.10, 3.11.
 
 
 0.7 (2018-11-16)
