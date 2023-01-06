@@ -1,7 +1,7 @@
 Changes
 *******
 
-0.8 (unreleased)
+1.0 (unreleased)
 ================
 
 - Add support for Python 3.8, 3.9, 3.10.
