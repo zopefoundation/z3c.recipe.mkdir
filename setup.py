@@ -1,5 +1,8 @@
-from setuptools import setup, find_packages
 import os
+
+from setuptools import find_packages
+from setuptools import setup
+
 
 version = '1.0.dev0'
 
@@ -26,15 +29,12 @@ setup(name='z3c.recipe.mkdir',
           "Development Status :: 3 - Alpha",
           "Framework :: Buildout",
           "Programming Language :: Python",
-          "Programming Language :: Python :: 2",
-          "Programming Language :: Python :: 2.7",
           "Programming Language :: Python :: 3",
-          "Programming Language :: Python :: 3.5",
-          "Programming Language :: Python :: 3.6",
           "Programming Language :: Python :: 3.7",
           "Programming Language :: Python :: 3.8",
           "Programming Language :: Python :: 3.9",
           "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
           "Programming Language :: Python :: Implementation :: CPython",
           "Programming Language :: Python :: Implementation :: PyPy",
           "Topic :: Software Development :: Libraries :: Python Modules",

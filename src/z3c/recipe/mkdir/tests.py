@@ -12,16 +12,18 @@
 #
 ##############################################################################
 from __future__ import print_function
+
+import doctest
 import grp
 import os
 import pwd
 import re
 import stat
 import unittest
-import doctest
 
 import zc.buildout.testing
 from zope.testing import renormalizing
+
 
 user = pwd.getpwuid(os.geteuid()).pw_name
 group = grp.getgrgid(os.getegid()).gr_name
