@@ -11,7 +11,6 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-from __future__ import print_function
 
 import doctest
 import grp
@@ -42,7 +41,7 @@ def dir_entry(path):
     st = os.stat(path)
     type_flag = stat.S_ISDIR(st.st_mode) and 'd' or '-'
     permissions = type_flag + perm(st.st_mode)
-    return '%s %s %s %s' % (permissions, user, group, path)
+    return '{} {} {} {}'.format(permissions, user, group, path)
 
 
 def ls_parts(dir='parts', *subs):
@@ -100,7 +99,7 @@ checker = renormalizing.RENormalizing([
      ),
     (re.compile("user '%s'" % user), "user 'USER'"),
     (re.compile("group '%s'" % group), "group 'GROUP'"),
-    (re.compile("%s %s" % (user, group)), "USER GROUP"),
+    (re.compile("{} {}".format(user, group)), "USER GROUP"),
     (re.compile(user), "USER"),
 ])
 
