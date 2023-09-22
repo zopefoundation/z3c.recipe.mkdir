@@ -2,7 +2,7 @@
 # https://github.com/zopefoundation/meta/tree/master/config/buildout-recipe
 [meta]
 template = "buildout-recipe"
-commit-id = "fd874ae4"
+commit-id = "b21fbbf2"
 
 [python]
 with-pypy = true
@@ -25,6 +25,7 @@ use-flake8 = true
 
 [manifest]
 additional-rules = [
+    "include *.yaml",
     "recursive-include src *.rst",
     "recursive-include src *.txt",
     ]
