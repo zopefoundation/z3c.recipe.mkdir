@@ -50,6 +50,7 @@ setup(name='z3c.recipe.mkdir',
       namespace_packages=['z3c', 'z3c.recipe'],
       include_package_data=True,
       zip_safe=False,
+      python_requires='>=3.7',
       install_requires=[
           'setuptools',
           'zc.buildout >= 1.5',
