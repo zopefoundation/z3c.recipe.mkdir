@@ -5,6 +5,7 @@ import zc.buildout
 
 
 class Recipe:
+
     def __init__(self, buildout, name, options):
         self.buildout = buildout
         self.name = name
@@ -15,9 +16,9 @@ class Recipe:
         self.create_intermediate = string_to_bool(
             options.get('create-intermediate', 'yes'))
 
-        paths = options.get('paths',
-                            os.path.join(
-                                buildout['buildout']['parts-directory'], name))
+        paths = options.get(
+            'paths', os.path.join(buildout['buildout']['parts-directory'],
+                                  name))
         self.paths = []
         for path in paths.split('\n'):
             path = path.strip()
@@ -42,7 +43,7 @@ class Recipe:
             try:
                 import pwd
                 self.uid = pwd.getpwnam(options['user'])[2]
-            except ImportError:
+            except ModuleNotFoundError:
                 self.logger.warn(
                     "System does not support `pwd`. Using default user")
 
@@ -53,7 +54,7 @@ class Recipe:
             try:
                 import grp
                 self.gid = grp.getgrnam(options['group'])[2]
-            except ImportError:
+            except ModuleNotFoundError:
                 self.logger.warn(
                     "System does not support `grp`. Using default group")
 
