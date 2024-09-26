@@ -3,6 +3,7 @@ import os
 from setuptools import find_packages
 from setuptools import setup
 
+
 version = '1.1.dev0'
 
 with open("README.rst") as f:
