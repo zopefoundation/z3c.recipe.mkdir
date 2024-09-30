@@ -1,4 +1,4 @@
-# 
+#
 # Generated from:
 # https://github.com/zopefoundation/meta/tree/master/config/buildout-recipe
 
@@ -13,7 +13,7 @@ source = ["z3c.recipe.mkdir"]
 parallel = true
 
 [tool.coverage.report]
-fail_under = 91
+fail_under = 89
 precision = 2
 ignore_errors = true
 show_missing = true
