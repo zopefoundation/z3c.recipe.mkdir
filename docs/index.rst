@@ -53,4 +53,4 @@ mode, if your system supports that:
 will create any non-existing directory ``foo/`` and ``foo/bar/`` with
 permissions set as told.
 
-.. include:: ../z3c/recipe/mkdir/README.rst
+.. include:: ../src/z3c/recipe/mkdir/README.rst
