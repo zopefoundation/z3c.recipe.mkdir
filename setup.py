@@ -15,11 +15,6 @@ with open(os.path.join("src", "z3c", "recipe", "mkdir", "README.rst")) as f:
 with open("CHANGES.rst") as f:
     CHANGES = f.read()
 
-TESTS_REQUIRE = [
-    'zope.testing',
-    'zope.testrunner',
-]
-DOCS_REQUIRE = ['Sphinx']
 
 setup(
     name='z3c.recipe.mkdir',
@@ -31,7 +26,6 @@ setup(
         "Framework :: Buildout",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
@@ -46,23 +40,27 @@ setup(
     author='Uli Fouquet',
     author_email='grok-dev@zope.org',
     url='https://github.com/zopefoundation/z3c.recipe.mkdir',
-    license='ZPL 2.1',
+    license='ZPL-2.1',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['z3c', 'z3c.recipe'],
     include_package_data=True,
     zip_safe=False,
-    python_requires='>=3.8',
+    python_requires='>=3.9',
     install_requires=[
         'setuptools',
         'zc.buildout >= 1.5',
     ],
-    test_suite='z3c.recipe.mkdir.tests.test_suite',
-    tests_require='zope.testing',
     extras_require={
-        'test': TESTS_REQUIRE,
-        'testing': TESTS_REQUIRE,
-        'docs': DOCS_REQUIRE,
+        'test': [
+            'zope.testing',
+            'zope.testrunner',
+        ],
+        'testing': [
+            'zope.testing',
+            'zope.testrunner',
+        ],
+        'docs': ['Sphinx'],
     },
     entry_points="""
       [zc.buildout]
