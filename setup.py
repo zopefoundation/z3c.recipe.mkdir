@@ -3,7 +3,7 @@ import os
 from setuptools import setup
 
 
-version = '2.0.dev0'
+version = '2.0'
 
 with open("README.rst") as f:
     README = f.read()
