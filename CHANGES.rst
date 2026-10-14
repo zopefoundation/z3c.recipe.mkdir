@@ -4,7 +4,7 @@ Changes
 2.1 (unreleased)
 ================
 
-- Nothing changed yet.
+- Fix tests to run with ``zc.buildout >= 6.0``.
 
 
 2.0 (2025-04-14)
