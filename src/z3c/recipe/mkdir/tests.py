@@ -101,6 +101,11 @@ checker = renormalizing.RENormalizing([
     (re.compile("group '%s'" % group), "group 'GROUP'"),
     (re.compile(f"{user} {group}"), "USER GROUP"),
     (re.compile(user), "USER"),
+    # zc.buildout >= 6 emits a warning when importing its vendored
+    # pkg_resources:
+    (re.compile(
+        r'.*UserWarning: pkg_resources is deprecated as an API.*\n'
+        r'.*from zc.buildout._vendor import pkg_resources.*\n'), ''),
 ])
 
 
