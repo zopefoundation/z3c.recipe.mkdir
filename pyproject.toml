@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "z3c.recipe.mkdir"
-version = "2.1"
+version = "2.2.dev0"
 description = "Buildout recipe to create directories."
 license = "ZPL-2.1"
 classifiers = [
