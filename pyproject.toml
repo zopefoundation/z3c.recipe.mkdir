@@ -1,15 +1,63 @@
-# Generated from:
-# https://github.com/zopefoundation/meta/tree/master/config/buildout-recipe
-#
-# Generated from:
-# https://github.com/zopefoundation/meta/tree/master/config/buildout-recipe
-
+# Generated with zope.meta (https://zopemeta.readthedocs.io/) from:
+# https://github.com/zopefoundation/meta/tree/master/src/zope/meta/buildout-recipe
 [build-system]
 requires = [
-    "setuptools == 75.8.2",
+    "setuptools >= 78.1.1,< 82",
     "wheel",
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "z3c.recipe.mkdir"
+version = "2.1.dev0"
+description = "Buildout recipe to create directories."
+license = "ZPL-2.1"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Buildout",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["readme"]
+requires-python = ">=3.11"
+authors = [
+    {name = "Uli Fouquet",email = "grok-dev@zope.dev"},
+]
+maintainers = [
+    {name = "Plone Foundation and contributors",email = "zope-dev@zope.dev"},
+]
+dependencies = [
+    "zc.buildout >= 1.5",
+]
+keywords = ["buildout", "directory", "folder", "mkdir"]
+
+[project.optional-dependencies]
+test = [
+    "zope.testing",
+    "zope.testrunner >= 6.4",
+]
+testing = [
+    "zope.testing",
+    "zope.testrunner >= 6.4",
+]
+docs = ["Sphinx"]
+
+[project.urls]
+Documentation = "https://z3crecipemkdir.readthedocs.io/"
+Source = "https://github.com/zopefoundation/z3c.recipe.mkdir"
+Issues = "https://github.com/zopefoundation/z3c.recipe.mkdir/issues"
+Changelog = "https://raw.githubusercontent.com/zopefoundation/z3c.recipe.mkdir/master/CHANGES.rst"
+
+[project.entry-points."zc.buildout"]
+default = "z3c.recipe.mkdir:Recipe"
 
 [tool.coverage.run]
 branch = true
@@ -41,3 +89,11 @@ source = [
     ".tox/*/lib/python*/site-packages/",
     ".tox/pypy*/site-packages/",
 ]
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst", "src/z3c/recipe/mkdir/README.rst", "CHANGES.rst"]}
+
+[tool.zest-releaser]
+create-wheel = false
+extra-message = ""
+upload-pypi = false
