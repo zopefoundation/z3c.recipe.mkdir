@@ -1,5 +1,5 @@
-:mod:`z3c.recipe.mkdir` Usage
-=============================
+`z3c.recipe.mkdir` Usage
+========================
 
 
 Recipe Options

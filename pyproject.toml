@@ -7,7 +7,6 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
-
 [project]
 name = "z3c.recipe.mkdir"
 version = "2.1.dev0"
@@ -93,3 +92,8 @@ source = [
 
 [tool.setuptools.dynamic]
 readme = {file = ["README.rst", "src/z3c/recipe/mkdir/README.rst", "CHANGES.rst"]}
+
+[tool.zest-releaser]
+create-wheel = false
+extra-message = ""
+upload-pypi = false
